@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd landing && npm install && npm run build",
+  "outputDirectory": "landing/.next",
+  "installCommand": "cd landing && npm install",
+  "framework": "nextjs",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet landing/",
+  "git": {
+    "deploymentEnabled": {
+      "landing": true,
+      "extension": false
+    }
+  }
+} 
