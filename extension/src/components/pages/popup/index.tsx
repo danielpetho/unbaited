@@ -15,7 +15,7 @@ function Popup() {
   };
 
   return (
-    <div className="w-[300px] p-5 font-mono">
+    <div className="w-[300px] p-5 font-mono lowercase">
       <div className="flex items-center gap-3 mb-4">
         <img 
           src="/logos/logo128.png" 
@@ -55,7 +55,7 @@ function Popup() {
       <Button 
           onClick={openSettings}
           className="w-full py-3 bg-black hover:bg-gray-800 text-white rounded-full 
-          text-sm font-semibold transition-colors"
+          text-sm font-semibold transition-colors lowercase"
         >
           Open Settings
         </Button>

@@ -37,19 +37,19 @@ export function PromptsSettings() {
   };
 
   return (
-    <div className="space-y-4 font-mono">
+    <div className="space-y-4 font-mono lowercase">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">System Prompt</h2>
         <div className="space-x-2">
           <button
             onClick={handleReset}
-            className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+            className="px-3 py-1 text-sm lowercase bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
           >
             Reset to Default
           </button>
           <button
             onClick={handleSave}
-            className="px-3 py-1 text-sm bg-black text-white hover:bg-gray-800 rounded-md transition-colors"
+            className="px-3 py-1 lowercase text-sm bg-black text-white hover:bg-gray-800 rounded-md transition-colors"
           >
             Save Changes
           </button>
