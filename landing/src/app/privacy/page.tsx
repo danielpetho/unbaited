@@ -17,7 +17,7 @@ export default function Privacy() {
               When you use Unbaited:
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Tweet content is sent to Groq's API for analysis</li>
+              <li>Tweet content is sent to Groq&apos;s API for analysis</li>
               <li>Your API key is stored locally in your browser</li>
               <li>No data is retained after analysis</li>
             </ul>
@@ -26,7 +26,7 @@ export default function Privacy() {
           <section>
             <h2 className="text-2xl font-bold mb-4">Third-Party Services</h2>
             <p>
-              We use Groq's API for tweet analysis. Please refer to <a href="https://groq.com/privacy" className="underline" target="_blank" rel="noopener noreferrer">Groq's privacy policy</a> for information about how they handle data.
+              We use Groq&apos;s API for tweet analysis. Please refer to <a href="https://groq.com/privacy" className="underline" target="_blank" rel="noopener noreferrer">Groq&apos;s privacy policy</a> for information about how they handle data.
             </p>
           </section>
   

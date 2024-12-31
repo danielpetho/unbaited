@@ -53,12 +53,12 @@ export default function Home() {
           </div>
           <div className="space-y-4 text-gray-600">
             <p>
-              The extension uses Groq's ultra-fast API to analyze tweets using
+              The extension uses Groq&apos;s ultra-fast API to analyze tweets using
               the Llama 3.3 model. When you scroll through X, it:
             </p>
             <ol className="list-decimal pl-5 space-y-2">
               <li>Detects new tweets as they appear in your viewport</li>
-              <li>Sends the tweet content to Groq's API for analysis</li>
+              <li>Sends the tweet content to Groq&apos;s API for analysis</li>
               <li>Blurs tweets that are identified as engagement bait</li>
               <li>
                 Gives you the option to reveal hidden tweets with a single click
@@ -76,7 +76,7 @@ export default function Home() {
               controls natively, giving people more agency over their feed
               content.
             </p>
-            <p>To use the extension, you'll need:</p>
+            <p>To use the extension, you&apos;ll need:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
                 Your own{" "}
