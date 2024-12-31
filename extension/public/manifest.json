@@ -1,0 +1,48 @@
+{
+  "name": "unbaited (prototype)",
+  "description": "Control your feed with LLMs on X",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "logos/logo16.png",
+    "48": "logos/logo48.png",
+    "128": "logos/logo128.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "logos/logo16.png",
+      "48": "logos/logo48.png",
+      "128": "logos/logo128.png"
+    }
+  },
+  "options_page": "settings.html",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://*.twitter.com/*",
+    "https://*.x.com/*",
+    "https://api.groq.com/*"
+  ],
+  "homepage_url": "https://unbaited.danielpetho.com",
+  "background": {
+    "service_worker": "serviceWorker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.x.com/*", "*://x.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*",
+        "fonts/*",
+        "font.css",
+        "index.css",
+        "locale.json"
+      ],
+      "matches": ["*://*.x.com/*", "*://x.com/*"]
+    }
+  ]
+}

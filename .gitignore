@@ -1,0 +1,6 @@
+.env*
+.vscode
+.venv
+!.envrc
+./extension/dist
+*/dist
