@@ -345,3 +345,19 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
+// Add this to your existing message listeners
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === "toggleExtension") {
+    if (!message.isEnabled) {
+      // Remove all blur effects and show buttons when disabled
+      document.querySelectorAll('.unbaited-tweet').forEach(tweet => {
+        (tweet as HTMLElement).style.filter = 'none';
+        tweet.classList.remove('unbaited-tweet');
+      });
+      document.querySelectorAll('.unbaited-show-tweet-button').forEach(button => {
+        button.remove();
+      });
+    }
+  }
+});
+
