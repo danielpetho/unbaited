@@ -22,7 +22,7 @@ export default function Home() {
 
       <div className="flex justify-center mt-4">
         <a
-          href="https://chrome.google.com/webstore/detail/unbaited/[your-extension-id]"
+          href="https://chromewebstore.google.com/detail/unbaited-prototype/bpbnggihcaknipcgbpgjgfhgmdgcokcg?authuser=2&hl=en"
           className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors"
           target="_blank"
           rel="noopener noreferrer"
