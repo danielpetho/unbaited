@@ -1,14 +1,14 @@
 # unbaited
 
-Control your feed with LLMs on X. A browser extension that helps you filter out engagement bait and inflammatory content from your X (formerly Twitter) feed.
+Control your X feed with LLama 3.3. A browser extension that helps you filter out engagement bait and inflammatory content from your X (formerly Twitter) feed.
 
 ## How it works
 
 The extension uses Groq's ultra-fast API to analyze tweets using the Llama 3.3 model. When you scroll through X, it:
 
 1. Detects new tweets as they appear in your viewport
-2. Sends the tweet content to Groq's API for analysis
-3. Blurs tweets that are identified as engagement bait
+2. Sends the tweet content (only text as of now) to Groq's API for analysis
+3. Blurs tweets that are identified as engagement bait, political tweets, etc.
 4. Gives you the option to reveal hidden tweets with a single click
 
 ## Installation
