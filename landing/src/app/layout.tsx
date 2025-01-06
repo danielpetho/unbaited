@@ -60,6 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8" />
+      </head>
       <body className={`${geistMono.className} antialiased`}>
         <Header />
         {children}

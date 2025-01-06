@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import TweetEmbed from "./components/tweet-embed";
 
 export default function Home() {
   return (
@@ -45,11 +46,8 @@ export default function Home() {
 
         <section>
           <h2 className="text-2xl font-bold mb-4">How it works</h2>
-          <div className="aspect-video w-full bg-gray-100 mb-6">
-            {/* Embedded tweet video will go here */}
-            <div className="w-full h-full flex items-center justify-center text-gray-500">
-              Demo video coming soon
-            </div>
+          <div className="aspect-video w-full bg-transparent mb-12 flex justify-center">
+            <TweetEmbed />
           </div>
           <div className="space-y-4 text-gray-600">
             <p>
