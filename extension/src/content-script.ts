@@ -55,6 +55,10 @@ showButtonStyle.textContent = `
   .unbaited-tweet-container {
     position: relative;
   }
+
+  .unbaited-tweet.hidden-tweet {
+    display: none !important;
+  }
 `;
 document.head.appendChild(showButtonStyle);
 
@@ -301,7 +305,6 @@ chrome.runtime.onMessage.addListener((message) => {
 chrome.runtime.onMessage.addListener((message) => {
   if (message.action === "analysisResult") {
     const { tweetId, isBait, error } = message.result;
-    console.log("Received analysis result:", { tweetId, isBait, error });
     
     if (error) {
       console.error(`Error analyzing tweet ${tweetId}:`, error);
@@ -309,38 +312,45 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 
     const tweetElement = document.querySelector(`[data-tweet-id="${tweetId}"]`);
-    // console.log("Found tweet element:", tweetElement);
     
     if (tweetElement && isBait) {
-      // Add container for relative positioning
-      const container = document.createElement('div');
-      container.className = 'unbaited-tweet-container';
-      tweetElement.parentNode?.insertBefore(container, tweetElement);
-      container.appendChild(tweetElement);
+      chrome.storage.sync.get(['displayMode'], (result) => {
+        const displayMode = result.displayMode || 'blur';
 
-      // Add the show button
-      const showButton = document.createElement('button');
-      showButton.className = 'unbaited-show-tweet-button';
-      showButton.textContent = 'Show';
-      container.appendChild(showButton);
+        if (displayMode === 'blur') {
+          // Add container for relative positioning
+          const container = document.createElement('div');
+          container.className = 'unbaited-tweet-container';
+          tweetElement.parentNode?.insertBefore(container, tweetElement);
+          container.appendChild(tweetElement);
 
-      // Apply blur effect and political class
-      tweetElement.classList.add('unbaited-tweet');
-      (tweetElement as HTMLElement).style.filter = 'blur(12px)';
+          // Add the show button
+          const showButton = document.createElement('button');
+          showButton.className = 'unbaited-show-tweet-button';
+          showButton.textContent = 'Show';
+          container.appendChild(showButton);
 
-      // Add click handler for the show button
-      showButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Remove blur effect
-        (tweetElement as HTMLElement).style.filter = 'none';
-        tweetElement.classList.remove('unbaited-tweet');
-        
-        // Remove the show button
-        showButton.remove();
+          // Apply blur effect
+          tweetElement.classList.add('unbaited-tweet');
+          (tweetElement as HTMLElement).style.filter = 'blur(12px)';
+
+          // Add click handler for the show button
+          showButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Remove blur effect
+            (tweetElement as HTMLElement).style.filter = 'none';
+            tweetElement.classList.remove('unbaited-tweet');
+            
+            // Remove the show button
+            showButton.remove();
+          });
+        } else {
+          // Just hide the tweet completely
+          tweetElement.classList.add('unbaited-tweet', 'hidden-tweet');
+        }
       });
-
     }
   }
 });

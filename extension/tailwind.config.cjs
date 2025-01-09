@@ -67,15 +67,6 @@ module.exports = {
           to: { height: "0" },
         },
       },
-      boxShadow: {
-        sm: "4px 4px 0px rgba(0, 0, 0, 1);",
-        md: "4px 4px 0px rgba(0, 0, 0, 1);",
-        lg: "5px 5px 0px rgba(0, 0, 0, 1);",
-        xl: "8px 8px 0px rgba(0, 0, 0, 1);",
-        "2xl": "10px 10px 0px rgba(0, 0, 0, 1);",
-        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);",
-        none: "none",
-      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",

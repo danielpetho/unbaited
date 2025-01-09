@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import TweetEmbed from "./components/tweet-embed";
+import TweetEmbed from "@/components/tweet-embed";
 
 export default function Home() {
   return (
