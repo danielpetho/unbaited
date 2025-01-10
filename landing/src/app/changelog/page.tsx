@@ -5,7 +5,7 @@ export default function Changelog() {
 
       <div className="space-y-12">
         <section>
-          <h2 className="text-2xl font-bold mb-4">January 2025</h2>
+          <h2 className="text-2xl font-bold mb-4">12 January 2025</h2>
           <div className="space-y-4">
             <div>
               <h3 className="text-lg font-bold">System Prompts & Model Updates</h3>
@@ -27,14 +27,14 @@ export default function Changelog() {
               </ul>
             </div>
 
-            <div>
+            {/* <div>
               <h3 className="text-lg font-bold">Performance Improvements</h3>
               <ul className="list-disc pl-5 space-y-2 mt-2 text-gray-600">
                 <li>Tweet analysis results are now cached for 24 hours</li>
                 <li>Cached results persist until tweet ID changes</li>
                 <li>Significantly reduced API calls for frequently viewed tweets</li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>
