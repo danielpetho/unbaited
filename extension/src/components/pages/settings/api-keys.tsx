@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ApiKeys() {
   const [groqKey, setGroqKey] = useState('');
@@ -6,7 +6,7 @@ export function ApiKeys() {
 
   useEffect(() => {
     // Load saved API key when component mounts
-    chrome.storage.local.get(['groqApiKey'], (result) => {
+    chrome.storage.sync.get(['groqApiKey'], (result) => {
       if (result.groqApiKey) {
         setGroqKey(result.groqApiKey);
       }
@@ -14,7 +14,7 @@ export function ApiKeys() {
   }, []);
 
   const handleSave = async () => {
-    await chrome.storage.local.set({ groqApiKey: groqKey });
+    await chrome.storage.sync.set({ groqApiKey: groqKey });
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
   };

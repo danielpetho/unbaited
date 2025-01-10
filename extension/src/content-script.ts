@@ -236,7 +236,6 @@ function getTweetContent(tweetElement: Element): {
   return result;
 }
 
-// Add this near the top of your content script
 const tweetObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const tweetElement = entry.target;
@@ -266,7 +265,6 @@ const tweetObserver = new IntersectionObserver((entries) => {
   rootMargin: '100px' // Start loading slightly before the tweet enters viewport
 });
 
-// Modify your existing observer to just set up the intersection observer
 const mutationObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     mutation.addedNodes.forEach((node) => {
@@ -281,7 +279,6 @@ const mutationObserver = new MutationObserver((mutations) => {
   });
 });
 
-// Update your initialization code
 if (window.location.hostname === "twitter.com" || window.location.hostname === "x.com") {
   mutationObserver.observe(document.body, {
     childList: true,
@@ -355,7 +352,6 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
-// Add this to your existing message listeners
 chrome.runtime.onMessage.addListener((message) => {
   if (message.action === "toggleExtension") {
     if (!message.isEnabled) {

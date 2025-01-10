@@ -1,6 +1,6 @@
 {
   "name": "unbaited (prototype)",
-  "description": "Control your X feed with LLama 3.3",
+  "description": "Control your X feed with an LLM",
   "version": "0.0.3",
   "manifest_version": 3,
   "icons": {

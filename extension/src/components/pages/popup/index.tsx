@@ -8,7 +8,7 @@ function Popup() {
 
   useEffect(() => {
     // Load both API key and enabled state
-    chrome.storage.local.get(['groqApiKey', 'isEnabled'], (result) => {
+    chrome.storage.sync.get(['groqApiKey', 'isEnabled'], (result) => {
       setHasApiKey(!!result.groqApiKey);
       // Default to true if not set
       setIsEnabled(result.isEnabled ?? true);
@@ -17,7 +17,7 @@ function Popup() {
 
   const toggleExtension = async (checked: boolean) => {
     setIsEnabled(checked);
-    await chrome.storage.local.set({ isEnabled: checked });
+    await chrome.storage.sync.set({ isEnabled: checked });
     
     // Notify content script of the change
     const tabs = await chrome.tabs.query({ active: true, currentWindow: true });

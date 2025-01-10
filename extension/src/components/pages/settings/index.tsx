@@ -60,8 +60,8 @@ export default function Settings() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold font-mono">Model Selection</h2>
-        <div className="flex flex-col space-y-2">
+        <h2 className="text-xl font-bold font-mono lowercase">Model Selection</h2>
+        <div className="flex flex-col space-y-2 font-mono lowercase">
           <Label>Choose Model</Label>
           <DropdownMenu>
             <DropdownMenuTrigger className="w-[240px] flex items-center justify-between px-3 py-2 border rounded-md bg-white font-mono">
