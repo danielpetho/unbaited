@@ -52,7 +52,7 @@ export default function Home() {
           <div className="space-y-4 text-gray-600">
             <p>
               The extension uses Groq&apos;s ultra-fast API to analyze tweets using
-              the Llama 3.3 model. When you scroll through X, it:
+              an llm of your choice. When you scroll through X, it:
             </p>
             <ol className="list-decimal pl-5 space-y-2">
               <li>Detects new tweets as they appear in your viewport</li>

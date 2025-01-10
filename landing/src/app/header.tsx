@@ -11,6 +11,11 @@ export function Header() {
             </Link>
           </li>
           <li>
+          <Link href="/changelog" className="hover:underline">
+              changelog
+            </Link>
+          </li>
+          <li>
             <Link href="/privacy" className="hover:underline">
               privacy
             </Link>
