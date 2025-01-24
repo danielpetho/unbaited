@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Label } from '@/components/ui/label';
-import { 
-  DEFAULT_CRITERIA, 
-  SYSTEM_PROMPT_PREFIX, 
-  SYSTEM_PROMPT_SUFFIX 
+import {
+  DEFAULT_CRITERIA,
+  SYSTEM_PROMPT_PREFIX,
+  SYSTEM_PROMPT_SUFFIX
 } from '@/lib/constants';
 
 export function PromptsSettings() {
