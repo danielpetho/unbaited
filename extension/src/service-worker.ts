@@ -22,12 +22,17 @@ ${criteria}
 ${SYSTEM_PROMPT_SUFFIX}`;
 }
 
+// Polyfill for Firefox
+if (typeof browser === "undefined") {
+  (globalThis as any).browser = chrome;
+}
+
 async function analyzeWithGroq(text: string, tweetId: string) {
   try {
     console.log("Analyzing tweet:", { tweetId, text });
 
     // Get all settings from sync storage
-    const { groqApiKey, promptCriteria, selectedModel, isEnabled } = await chrome.storage.sync.get([
+    const { groqApiKey, promptCriteria, selectedModel, isEnabled } = await browser.storage.sync.get([
       'groqApiKey', 
       'promptCriteria',
       'selectedModel',
@@ -117,10 +122,10 @@ async function analyzeWithGroq(text: string, tweetId: string) {
   }
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "newTweet") {
     // Check if extension is enabled from sync storage
-    chrome.storage.sync.get(['isEnabled'], async (result) => {
+    browser.storage.sync.get(['isEnabled']).then(async (result) => {
       // Default to enabled if not set
       const isEnabled = result.isEnabled ?? true;
       
@@ -134,7 +139,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       analyzeWithGroq(request.content.text, tweetId).then(result => {
         console.log("Analysis result:", result);
         if (sender.tab && sender.tab.id) {
-          chrome.tabs.sendMessage(sender.tab.id, {
+          browser.tabs.sendMessage(sender.tab.id, {
             action: "analysisResult",
             result: { tweetId, isBait: result.isBait, error: null }
           });
@@ -142,11 +147,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       });
     });
   }
+  // Required for Firefox to keep message port open
+  return true;
 });
 
 // When the service worker starts, ensure defaults are set
-chrome.runtime.onInstalled.addListener(async () => {
-  const { promptCriteria, selectedModel } = await chrome.storage.sync.get(['promptCriteria', 'selectedModel']);
+browser.runtime.onInstalled.addListener(async () => {
+  const { promptCriteria, selectedModel } = await browser.storage.sync.get(['promptCriteria', 'selectedModel']);
   const defaults = {
     ...(promptCriteria ? {} : { promptCriteria: DEFAULT_CRITERIA }),
     ...(selectedModel ? {} : { selectedModel: 'gemma2-9b-it' }),
@@ -154,7 +161,25 @@ chrome.runtime.onInstalled.addListener(async () => {
   };
   
   if (Object.keys(defaults).length > 0) {
-    await chrome.storage.sync.set(defaults);
+    await browser.storage.sync.set(defaults);
     console.log('Default settings set:', defaults);
   }
 });
+
+// TypeScript declarations for Firefox WebExtension API
+declare namespace browser {
+  export const runtime: typeof chrome.runtime;
+  export const storage: typeof chrome.storage;
+  export const tabs: typeof chrome.tabs;
+}
+
+/*
+ * Browser Compatibility Notes:
+ * - Chrome/Safari: Uses service workers via chrome.* API
+ * - Firefox: Uses background scripts via browser.* API
+ * 
+ * This script handles both environments by:
+ * 1. Polyfilling the browser API for Chrome/Safari
+ * 2. Using browser.* API consistently throughout the code
+ * 3. Keeping message ports open for Firefox (return true in listeners)
+ */
