@@ -4,7 +4,9 @@
 
 ### Firefox support
 - Added Firefox support (only loading as a temporary add-on as of now)
-- LLM will return reason keywords why it classified a tweet as bait
+
+### Reasons
+- LLM returns reason keywords why it classified a tweet as bait
 
 ## 12 January 2025
 
