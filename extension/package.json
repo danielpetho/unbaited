@@ -1,7 +1,7 @@
 {
   "name": "unbaited",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "author": {
     "name": "daniel petho",
@@ -40,6 +40,7 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@types/chrome": "^0.0.268",
     "@types/node": "^22.1.0",
     "@types/react": "^18.2.45",
