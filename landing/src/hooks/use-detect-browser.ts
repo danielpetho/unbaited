@@ -1,16 +1,14 @@
 import React from "react";
 
 export default function useDetectBrowser() {
-  const [ browserName, setBrowserName ] = React.useState("");
-  
-  if (typeof window === 'undefined') return null
-
-  const sUsrAg = navigator.userAgent;
-
-  let sBrowser
-  
+  const [browserName, setBrowserName] = React.useState("");
 
   React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const sUsrAg = navigator.userAgent;
+    let sBrowser;
+
     if (sUsrAg.indexOf("Firefox") > -1) {
       sBrowser = "Firefox";
       // "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
@@ -37,5 +35,6 @@ export default function useDetectBrowser() {
     }
     setBrowserName(sBrowser);
   }, []);
-  return browserName
+
+  return browserName;
 }
