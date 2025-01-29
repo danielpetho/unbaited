@@ -1,5 +1,13 @@
 # Changelog
 
+## 29 January 2025
+
+### Firefox listing
+- Extension is now listed on Firefox Add-ons
+
+### Design updates
+- Show button and reasons are properly aligned to center
+
 ## 24 January 2025
 
 ### Firefox support
