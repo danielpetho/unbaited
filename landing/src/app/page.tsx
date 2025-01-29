@@ -1,8 +1,17 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import TweetEmbed from "@/components/tweet-embed";
+import useDetectBrowser from "@/hooks/use-detect-browser";
+
+const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/unbaited-prototype/bpbnggihcaknipcgbpgjgfhgmdgcokcg";
+const FIREFOX_STORE_URL = "https://addons.mozilla.org/en-US/firefox/addon/unbaited-prototype"; // Replace with actual Firefox store URL
 
 export default function Home() {
+  const browserName = useDetectBrowser()
+  const isFirefox = browserName === 'Firefox'
+
   return (
     <main className="max-w-2xl mx-auto px-4 py-12 font-mono lowercase">
       <div className="flex flex-col items-center">
@@ -23,12 +32,12 @@ export default function Home() {
 
       <div className="flex justify-center mt-4">
         <a
-          href="https://chromewebstore.google.com/detail/unbaited-prototype/bpbnggihcaknipcgbpgjgfhgmdgcokcg?authuser=2&hl=en"
+          href={isFirefox ? FIREFOX_STORE_URL : CHROME_STORE_URL}
           className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Add to Chrome
+          Add to {isFirefox ? 'Firefox' : 'Chrome'}
         </a>
       </div>
 
