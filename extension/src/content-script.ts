@@ -37,32 +37,34 @@ document.head.appendChild(link);
 
 const showButtonStyle = document.createElement('style');
 showButtonStyle.textContent = `
-  .unbaited-show-tweet-button {
+  .unbaited-controls {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+  }
+
+  .unbaited-show-tweet-button {
     background-color: white;
     color: black;
     padding: 8px 16px;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    z-index: 1000;
     font-family: system-ui;
   }
 
   .unbaited-reasons {
-    position: absolute;
-    top: calc(50% + 30px);
-    left: 50%;
-    transform: translateX(-50%);
     color: #666;
     font-size: 12px;
     text-align: center;
     white-space: nowrap;
     font-family: system-ui;
-    max-width: 80%;
     background: rgba(255, 255, 255, 0.9);
     padding: 4px 8px;
     border-radius: 4px;
@@ -359,11 +361,16 @@ chrome.runtime.onMessage.addListener((message) => {
                     );
                     container.appendChild(tweetElement);
 
+                    // Create controls container
+                    const controlsContainer = document.createElement('div');
+                    controlsContainer.className = 'unbaited-controls';
+                    container.appendChild(controlsContainer);
+
                     // Add the show button
                     const showButton = document.createElement('button');
                     showButton.className = 'unbaited-show-tweet-button';
                     showButton.textContent = 'Show';
-                    container.appendChild(showButton);
+                    controlsContainer.appendChild(showButton);
 
                     // Add filter reasons if available
                     if (message.result.reasons?.length > 0) {
@@ -372,7 +379,7 @@ chrome.runtime.onMessage.addListener((message) => {
                         reasons.textContent = `Filtered: ${message.result.reasons.join(
                             ', '
                         )}`;
-                        container.appendChild(reasons);
+                        controlsContainer.appendChild(reasons);
                     }
 
                     // Apply blur effect
@@ -388,9 +395,8 @@ chrome.runtime.onMessage.addListener((message) => {
                         (tweetElement as HTMLElement).style.filter = 'none';
                         tweetElement.classList.remove('unbaited-tweet');
 
-                        // Remove the show button and reasons
-                        showButton.remove();
-                        container.querySelector('.unbaited-reasons')?.remove();
+                        // Remove the controls container
+                        controlsContainer.remove();
                     });
                 } else {
                     // Just hide the tweet completely
