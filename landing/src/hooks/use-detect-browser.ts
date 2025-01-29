@@ -1,13 +1,14 @@
 import React from "react";
 
 export default function useDetectBrowser() {
+  const [ browserName, setBrowserName ] = React.useState("");
+  
   if (typeof window === 'undefined') return null
 
   const sUsrAg = navigator.userAgent;
 
   let sBrowser
   
-  const [ browserName, setBrowserName ] = React.useState("");
 
   React.useEffect(() => {
     if (sUsrAg.indexOf("Firefox") > -1) {
