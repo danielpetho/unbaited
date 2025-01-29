@@ -3,7 +3,10 @@ import React from "react";
 export default function useDetectBrowser() {
   if (typeof window === 'undefined') return null
 
-  let sBrowser, sUsrAg = navigator.userAgent;
+  const sUsrAg = navigator.userAgent;
+
+  let sBrowser
+  
   const [ browserName, setBrowserName ] = React.useState("");
 
   React.useEffect(() => {
