@@ -14,13 +14,13 @@ The extension uses Groq's ultra-fast API to analyze tweets using a model of your
 ## Installation
 
 ### Chrome/Safari
-1. Install the extension from the Chrome Web Store
+1. Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/unbaited-prototype/bpbnggihcaknipcgbpgjgfhgmdgcokcg)
 2. Get your API key from [Groq](https://console.groq.com)
 3. Open the extension settings and enter your API key
 4. Optionally customize the system prompt to adjust how tweets are analyzed
 
 ### Firefox
-1. Install the extension from Firefox Add-ons (coming soon)
+1. Install the extension from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/unbaited-prototype/)
 2. Get your API key from [Groq](https://console.groq.com) 
 3. Open the extension settings and enter your API key
 4. Optionally customize the system prompt to adjust how tweets are analyzed
