@@ -1,5 +1,8 @@
 # Changelog
 
+## 7 May 2025
+- Updated model list
+
 ## 29 January 2025
 
 ### Firefox listing
