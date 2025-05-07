@@ -6,7 +6,7 @@ import TweetEmbed from "@/components/tweet-embed";
 import useDetectBrowser from "@/hooks/use-detect-browser";
 
 const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/unbaited-prototype/bpbnggihcaknipcgbpgjgfhgmdgcokcg";
-const FIREFOX_STORE_URL = "https://addons.mozilla.org/en-US/firefox/addon/unbaited-prototype"; // Replace with actual Firefox store URL
+const FIREFOX_STORE_URL = "https://addons.mozilla.org/en-US/firefox/addon/unbaited-prototype";
 
 export default function Home() {
   const browserName = useDetectBrowser()
@@ -96,7 +96,6 @@ export default function Home() {
                   Groq API key
                 </a>
               </li>
-              <li>Chrome or a Chromium-based browser</li>
             </ul>
             <p>
               You can customize the system prompts to adjust how tweets are
