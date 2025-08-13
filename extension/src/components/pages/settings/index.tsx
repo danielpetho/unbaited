@@ -57,7 +57,7 @@ export default function Settings() {
     chrome.storage.sync.set({ selectedModel: modelId });
   };
 
-  const selectedModelName = models.find(m => m.id === selectedModel)?.id || 'Select Model';
+  const selectedModelName = models.find(m => m.id === selectedModel)?.name || 'Select Model';
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-8 lowercase">
