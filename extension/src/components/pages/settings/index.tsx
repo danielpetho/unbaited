@@ -72,20 +72,20 @@ export default function Settings() {
         <div className="flex flex-col space-y-2 font-mono lowercase">
           <Label>Choose Model</Label>
           <DropdownMenu>
-            <DropdownMenuTrigger className="w-[240px] flex items-center justify-between px-3 py-2 border rounded-md bg-white font-mono">
+            <DropdownMenuTrigger className="w-[320px] flex items-center justify-between px-3 py-2 border rounded-md bg-white font-mono">
               {selectedModelName}
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-[240px]">
+            <DropdownMenuContent className="w-[320px] space-y-4 max-h-[400px] overflow-y-auto">
               <DropdownMenuLabel>Models</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {models.map((model) => (
                 <DropdownMenuItem
                   key={model.id}
                   onSelect={() => handleModelChange(model.id)}
-                  className="flex justify-between font-mono"
+                  className="grid grid-cols-12 justify-between font-mono cursor-pointer"
                 >
-                  <span>{model.id}</span>
-                  <span className="text-sm text-gray-500">{model.provider}</span>
+                  <span className="text-left col-span-8">{model.name}</span>
+                  <span className="text-sm text-gray-500 col-span-4 text-right">{model.provider}</span>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
