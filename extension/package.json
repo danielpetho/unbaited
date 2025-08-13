@@ -1,11 +1,11 @@
 {
   "name": "unbaited",
   "private": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "author": {
     "name": "daniel petho",
-    "email": "hello@danielpetho.com",
+    "email": "hi@danielpetho.com",
     "url": "https://danielpetho.com"
   },
   "scripts": {

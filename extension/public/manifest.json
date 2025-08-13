@@ -1,7 +1,7 @@
 {
-  "name": "unbaited (prototype)",
+  "name": "unbaited",
   "description": "Control your X feed with an LLM",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "manifest_version": 3,
   "icons": {
     "16": "logos/logo16.png",

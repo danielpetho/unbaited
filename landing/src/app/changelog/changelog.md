@@ -1,5 +1,8 @@
 # Changelog
 
+## 14 Aug 2025
+- Updated model list
+
 ## 7 May 2025
 - Updated model list
 
