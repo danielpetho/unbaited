@@ -25,15 +25,15 @@ export default function Home() {
           />
           <h1 className="text-4xl font-bold">unbaited</h1>
         </div>
-        <p className="text-lg text-gray-600 text-center mt-4">
+        <p className="text-lg text-gray-600 dark:text-gray-400 text-center mt-4">
           Control your feed with LLMs on X
         </p>
       </div>
 
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-8">
         <a
           href={isFirefox ? FIREFOX_STORE_URL : CHROME_STORE_URL}
-          className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors"
+          className="bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -44,7 +44,7 @@ export default function Home() {
       <div className="space-y-8 mb-12 mt-8">
         <section>
           <h2 className="text-2xl font-bold mb-4">What is this?</h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
             Unbaited is a browser extension that helps you filter out engagement
             bait and inflammatory content from your X (formerly Twitter) feed.
             It uses AI to analyze tweets in real-time and hides content designed
@@ -58,7 +58,7 @@ export default function Home() {
           <div className="aspect-video w-full bg-transparent mb-12 flex justify-center">
             <TweetEmbed />
           </div>
-          <div className="space-y-4 text-gray-600">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400">
             <p>
               The extension uses Groq&apos;s ultra-fast API to analyze tweets using
               an llm of your choice. When you scroll through X, it:
@@ -76,7 +76,7 @@ export default function Home() {
 
         <section>
           <h2 className="text-2xl font-bold mb-4">Important Notes</h2>
-          <div className="space-y-4 text-gray-600">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400">
             <p>
               This is a prototype and thought-provoker. The goal is to
               demonstrate how social media platforms could integrate more user
@@ -89,7 +89,7 @@ export default function Home() {
                 Your own{" "}
                 <a
                   href="https://console.groq.com"
-                  className="text-black underline"
+                  className="text-black dark:text-white underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </section>
 
-        <p className="text-sm text-gray-500 text-center">
+        <p className="text-sm text-gray-500 dark:text-gray-500 text-center">
           Read the{" "}
           <Link href="/privacy" className="underline">
             privacy policy

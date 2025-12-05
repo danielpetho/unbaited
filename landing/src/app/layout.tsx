@@ -2,6 +2,7 @@ import { Header } from "@/app/header";
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import { siteConfig } from "@/app/config/site";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -59,13 +60,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8" />
       </head>
       <body className={`${geistMono.className} antialiased`}>
-        <Header />
-        {children}
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
